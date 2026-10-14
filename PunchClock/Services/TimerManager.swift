@@ -182,18 +182,26 @@ final class TimerManager: ObservableObject {
         }
     }
 
-    private func catchUpPhases(missedSeconds: Int, preset: Preset) {
+    /// Advances through phases that elapsed while the app was suspended.
+    ///
+    /// Internal rather than private so the tests can drive it directly: it is the one
+    /// piece of logic here that cannot be exercised through the public surface without
+    /// waiting out a real workout.
+    ///
+    /// Silent by design. A bell marks a transition as it happens; these already happened,
+    /// unheard, and ringing one for each would fire the whole backlog at once the moment
+    /// someone unlocks their phone — several bells on top of each other for a gap of a few
+    /// rounds. The live transitions still ring, in `transitionToNextPhase`.
+    func catchUpPhases(missedSeconds: Int, preset: Preset) {
         var secondsToProcess = missedSeconds
 
         while secondsToProcess > 0 && state.phase != .finished {
             switch state.phase {
             case .prepare:
-                soundManager.playBell()
                 state.phase = .round
                 state.timeRemaining = preset.roundTime
 
             case .round:
-                soundManager.playBell()
                 if state.currentRound >= preset.numberOfRounds {
                     state.phase = .finished
                     state.isRunning = false
@@ -209,7 +217,6 @@ final class TimerManager: ObservableObject {
                 }
 
             case .rest:
-                soundManager.playBell()
                 state.currentRound += 1
                 state.phase = .round
                 state.timeRemaining = preset.roundTime

@@ -63,7 +63,10 @@ final class PunchClockTests: XCTestCase {
 
         XCTAssertEqual(state.phase, .idle)
         XCTAssertEqual(state.timeRemaining, 0)
-        XCTAssertEqual(state.currentRound, 0)
+        // A workout starts on round 1, and TimerState has said so for a while; this
+        // assertion still expected 0. Nothing caught it because CI builds but never runs
+        // the tests.
+        XCTAssertEqual(state.currentRound, 1)
         XCTAssertFalse(state.isRunning)
     }
 

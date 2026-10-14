@@ -54,7 +54,7 @@ struct PresetEditorView: View {
                 } footer: {
                     if name.isEmpty {
                         Text("Enter a name to save")
-                            .foregroundColor(.red)
+                            .foregroundStyle(.red)
                     }
                 }
 
@@ -81,7 +81,7 @@ struct PresetEditorView: View {
                     .frame(height: pickerHeight)
                 } header: {
                     Label("Round", systemImage: "flame.fill")
-                        .foregroundColor(.red)
+                        .foregroundStyle(.red)
                 }
 
                 Section {
@@ -103,7 +103,7 @@ struct PresetEditorView: View {
                     .frame(height: pickerHeight)
                 } header: {
                     Label("Rest", systemImage: "pause.circle.fill")
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                 }
 
                 Section {
@@ -125,7 +125,7 @@ struct PresetEditorView: View {
                     .frame(height: pickerHeight)
                 } header: {
                     Label("Prepare", systemImage: "clock")
-                        .foregroundColor(.yellow)
+                        .foregroundStyle(.yellow)
                 }
 
                 Section {
@@ -153,7 +153,7 @@ struct PresetEditorView: View {
                     }
                 } header: {
                     Label("Reflex Training", systemImage: "bolt.fill")
-                        .foregroundColor(.orange)
+                        .foregroundStyle(.orange)
                 }
             }
 
@@ -168,7 +168,7 @@ struct PresetEditorView: View {
                     Text(formattedTotalTime)
                         .font(.subheadline)
                 }
-                .foregroundColor(.black)
+                .foregroundStyle(.black)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 12)
                 .padding(.bottom, 4)

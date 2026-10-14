@@ -91,7 +91,7 @@ struct TimerView: View {
                             } label: {
                                 Image(systemName: reflexCueManager.isEnabled ? "bolt.fill" : "bolt.slash.fill")
                                     .font(.system(size: 22))
-                                    .foregroundColor(.white.opacity(0.8))
+                                    .foregroundStyle(.white.opacity(0.8))
                                     .frame(width: 44, height: 44)
                             }
                             .accessibilityLabel(reflexCueManager.isEnabled ? "Disable reflex cues" : "Enable reflex cues")
@@ -101,7 +101,7 @@ struct TimerView: View {
                         } label: {
                             Image(systemName: timerManager.isMuted ? "speaker.slash.fill" : "speaker.wave.2.fill")
                                 .font(.system(size: 22))
-                                .foregroundColor(.white.opacity(0.8))
+                                .foregroundStyle(.white.opacity(0.8))
                                 .frame(width: 44, height: 44)
                         }
                         .accessibilityLabel(timerManager.isMuted ? "Unmute" : "Mute")
@@ -114,12 +114,12 @@ struct TimerView: View {
 
                     Text(timerManager.state.phaseDisplayName)
                         .font(.system(size: 32, weight: .bold))
-                        .foregroundColor(.white.opacity(0.9))
+                        .foregroundStyle(.white.opacity(0.9))
 
                     if let cueText = reflexCueManager.currentCueText {
                         Text(cueText.uppercased())
                             .font(.system(size: 34, weight: .heavy))
-                            .foregroundColor(Color(red: 1.0, green: 0.8, blue: 0.3))
+                            .foregroundStyle(Color(red: 1.0, green: 0.8, blue: 0.3))
                             .shadow(color: .black.opacity(0.5), radius: 2, x: 0, y: 1)
                             .transition(.scale.combined(with: .opacity))
                             .animation(.spring(response: 0.3, dampingFraction: 0.6), value: cueText)
@@ -127,7 +127,7 @@ struct TimerView: View {
 
                     Text(timerManager.state.formattedTime)
                         .font(.system(size: 120, weight: .bold, design: .monospaced))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
 
@@ -157,7 +157,7 @@ struct TimerView: View {
 
             Text(formattedElapsedTime)
                 .font(.system(size: 72, weight: .bold, design: .monospaced))
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .scaleEffect(showFinishedAnimation ? 1.0 : 0.8)
                 .opacity(showFinishedAnimation ? 1.0 : 0.0)
 
@@ -165,7 +165,7 @@ struct TimerView: View {
                 Text("\(preset.numberOfRounds) rounds")
                     .font(.title2)
                     .fontWeight(.medium)
-                    .foregroundColor(.white.opacity(0.8))
+                    .foregroundStyle(.white.opacity(0.8))
                     .padding(.top, 8)
                     .opacity(showFinishedAnimation ? 1.0 : 0.0)
             }
@@ -179,7 +179,7 @@ struct TimerView: View {
                 Text("Done")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background(Color.white)
@@ -211,7 +211,7 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: "arrow.counterclockwise")
                             .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 56, height: 56)
                             .background(Color.white.opacity(0.2))
                             .clipShape(Circle())
@@ -228,7 +228,7 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: "forward.fill")
                             .font(.system(size: 20, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 56, height: 56)
                             .background(Color.white.opacity(0.2))
                             .clipShape(Circle())
@@ -244,7 +244,7 @@ struct TimerView: View {
                     } label: {
                         Text("+20s")
                             .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 56, height: 56)
                             .background(Color.white.opacity(0.2))
                             .clipShape(Circle())
@@ -261,7 +261,7 @@ struct TimerView: View {
                 } label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 28, weight: .semibold))
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                         .frame(width: 72, height: 72)
                         .background(Color.white.opacity(0.2))
                         .clipShape(Circle())
@@ -276,7 +276,7 @@ struct TimerView: View {
                     } label: {
                         Image(systemName: timerManager.state.isRunning ? "pause.fill" : "play.fill")
                             .font(.system(size: 36))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 88, height: 88)
                             .background(Color.white.opacity(0.25))
                             .clipShape(Circle())
@@ -299,7 +299,7 @@ struct RoundProgressView: View {
             Text("Round \(currentRound) of \(totalRounds)")
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {

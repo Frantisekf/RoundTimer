@@ -28,3 +28,12 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild clean build analyze -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination 'generic/platform=iOS Simulator' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty && exit ${PIPESTATUS[0]}
+      # Building is not the same as passing. Until this step existed the suite could go
+      # red and stay red unnoticed — and had: a stale assertion expected currentRound 0
+      # when a workout has started on round 1 for some time.
+      - name: Test
+        run: |
+          xcodebuild test -scheme PunchClock -project PunchClock.xcodeproj \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            -only-testing:PunchClockTests \
+            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty && exit ${PIPESTATUS[0]}

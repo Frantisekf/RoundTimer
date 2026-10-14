@@ -68,7 +68,7 @@ struct PresetSetupView: View {
                         .frame(height: pickerHeight)
                     } header: {
                         Label("Round", systemImage: "flame.fill")
-                            .foregroundColor(.red)
+                            .foregroundStyle(.red)
                     }
 
                     Section {
@@ -90,7 +90,7 @@ struct PresetSetupView: View {
                         .frame(height: pickerHeight)
                     } header: {
                         Label("Rest", systemImage: "pause.circle.fill")
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                     }
 
                     Section {
@@ -112,7 +112,7 @@ struct PresetSetupView: View {
                         .frame(height: pickerHeight)
                     } header: {
                         Label("Prepare", systemImage: "clock")
-                            .foregroundColor(.yellow)
+                            .foregroundStyle(.yellow)
                     }
 
                     Section {
@@ -140,7 +140,7 @@ struct PresetSetupView: View {
                         }
                     } header: {
                         Label("Reflex Training", systemImage: "bolt.fill")
-                            .foregroundColor(.orange)
+                            .foregroundStyle(.orange)
                     }
                 }
 
@@ -166,7 +166,7 @@ struct PresetSetupView: View {
                         Text(totalTimeFormatted)
                             .font(.subheadline)
                     }
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .padding(.top, 12)
                     .padding(.bottom, 4)

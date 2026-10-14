@@ -168,14 +168,14 @@ struct PresetRow: View {
                     Text("\(formatTime(preset.restTime)) rest")
                 }
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
             }
 
             Spacer()
 
             Text(formattedTotalTime)
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .padding(.vertical, 10)
         .alignmentGuide(.listRowSeparatorLeading) { _ in 0 }
@@ -308,18 +308,18 @@ struct QuoteView: View {
         VStack(alignment: .center, spacing: 8) {
             Image(systemName: "quote.opening")
                 .font(.title3)
-                .foregroundColor(.secondary.opacity(0.4))
+                .foregroundStyle(.secondary.opacity(0.4))
 
             Text(currentQuote.quote)
                 .font(.subheadline)
                 .italic()
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
 
             Text("— \(currentQuote.author)")
                 .font(.caption)
                 .fontWeight(.medium)
-                .foregroundColor(.secondary.opacity(0.8))
+                .foregroundStyle(.secondary.opacity(0.8))
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)

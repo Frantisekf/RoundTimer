@@ -14,7 +14,7 @@ struct PunchClockWidgetLiveActivity: Widget {
                 DynamicIslandExpandedRegion(.leading) {
                     HStack(spacing: 6) {
                         Image(systemName: phaseIcon(for: context.state.phase))
-                            .foregroundColor(phaseColor(for: context.state.phase))
+                            .foregroundStyle(phaseColor(for: context.state.phase))
                         Text(phaseName(for: context.state.phase))
                             .font(.caption2)
                             .fontWeight(.semibold)
@@ -25,7 +25,7 @@ struct PunchClockWidgetLiveActivity: Widget {
                     HStack(spacing: 4) {
                         Text("Round")
                             .font(.caption2)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Text("\(context.state.currentRound)/\(context.state.totalRounds)")
                             .font(.caption)
                             .fontWeight(.semibold)
@@ -36,17 +36,17 @@ struct PunchClockWidgetLiveActivity: Widget {
                     if context.state.isRunning && context.state.endTime > Date() {
                         Text(context.state.endTime, style: .timer)
                             .font(.system(size: 40, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .monospacedDigit()
                     } else if !context.state.isRunning {
                         Text(formatTime(context.state.timeRemaining))
                             .font(.system(size: 40, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .monospacedDigit()
                     } else {
                         Text("0:00")
                             .font(.system(size: 40, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .monospacedDigit()
                     }
                 }
@@ -55,41 +55,41 @@ struct PunchClockWidgetLiveActivity: Widget {
                     HStack {
                         Text(context.attributes.presetName)
                             .font(.caption)
-                            .foregroundColor(.secondary)
+                            .foregroundStyle(.secondary)
                         Spacer()
                         if !context.state.isRunning {
                             Image(systemName: "pause.circle.fill")
-                                .foregroundColor(.orange)
+                                .foregroundStyle(.orange)
                         }
                     }
                 }
             } compactLeading: {
                 Image(systemName: phaseIcon(for: context.state.phase))
-                    .foregroundColor(phaseColor(for: context.state.phase))
+                    .foregroundStyle(phaseColor(for: context.state.phase))
             } compactTrailing: {
                 if context.state.isRunning && context.state.endTime > Date() {
                     Text(context.state.endTime, style: .timer)
                         .multilineTextAlignment(.trailing)
                         .monospacedDigit()
-                        .foregroundColor(phaseColor(for: context.state.phase))
+                        .foregroundStyle(phaseColor(for: context.state.phase))
                         .frame(width: 42)
                         .fixedSize()
                 } else if !context.state.isRunning {
                     Text(formatTime(context.state.timeRemaining))
                         .monospacedDigit()
-                        .foregroundColor(.orange)
+                        .foregroundStyle(.orange)
                         .frame(width: 42)
                         .fixedSize()
                 } else {
                     Text("0:00")
                         .monospacedDigit()
-                        .foregroundColor(phaseColor(for: context.state.phase))
+                        .foregroundStyle(phaseColor(for: context.state.phase))
                         .frame(width: 42)
                         .fixedSize()
                 }
             } minimal: {
                 Image(systemName: phaseIcon(for: context.state.phase))
-                    .foregroundColor(phaseColor(for: context.state.phase))
+                    .foregroundStyle(phaseColor(for: context.state.phase))
             }
         }
     }
@@ -100,7 +100,7 @@ struct PunchClockWidgetLiveActivity: Widget {
             HStack {
                 HStack(spacing: 6) {
                     Image(systemName: phaseIcon(for: context.state.phase))
-                        .foregroundColor(phaseColor(for: context.state.phase))
+                        .foregroundStyle(phaseColor(for: context.state.phase))
                     Text(phaseName(for: context.state.phase))
                         .font(.caption)
                         .fontWeight(.semibold)
@@ -110,7 +110,7 @@ struct PunchClockWidgetLiveActivity: Widget {
 
                 Text("Round \(context.state.currentRound)/\(context.state.totalRounds)")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
 
             HStack(alignment: .firstTextBaseline, spacing: 4) {
@@ -123,7 +123,7 @@ struct PunchClockWidgetLiveActivity: Widget {
                         .font(.system(size: 36, weight: .bold, design: .rounded))
                         .monospacedDigit()
                     Image(systemName: "pause.circle.fill")
-                        .foregroundColor(.orange)
+                        .foregroundStyle(.orange)
                 } else {
                     Text("0:00")
                         .font(.system(size: 36, weight: .bold, design: .rounded))
@@ -133,7 +133,7 @@ struct PunchClockWidgetLiveActivity: Widget {
 
             Text(context.attributes.presetName)
                 .font(.caption2)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .padding()
     }

@@ -64,17 +64,17 @@ struct WatchTimerView: View {
                 Text(timerManager.state.phaseDisplayName)
                     .font(.caption)
                     .fontWeight(.semibold)
-                    .foregroundColor(.white.opacity(0.9))
+                    .foregroundStyle(.white.opacity(0.9))
 
                 Text(timerManager.state.formattedTime)
                     .font(.system(size: 52, weight: .bold, design: .rounded))
                     .monospacedDigit()
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
 
                 if let preset = timerManager.currentPreset {
                     Text("Round \(timerManager.state.currentRound)/\(preset.numberOfRounds)")
                         .font(.caption2)
-                        .foregroundColor(.white.opacity(0.7))
+                        .foregroundStyle(.white.opacity(0.7))
                 }
 
                 Spacer()
@@ -86,7 +86,7 @@ struct WatchTimerView: View {
                     } label: {
                         Image(systemName: "stop.fill")
                             .font(.title3)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 44, height: 44)
                     }
                     .buttonStyle(.plain)
@@ -98,7 +98,7 @@ struct WatchTimerView: View {
                     } label: {
                         Image(systemName: timerManager.state.isRunning ? "pause.fill" : "play.fill")
                             .font(.title2)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 50, height: 50)
                             .background(Color.white.opacity(0.3))
                             .clipShape(Circle())
@@ -112,7 +112,7 @@ struct WatchTimerView: View {
                     } label: {
                         Image(systemName: "forward.fill")
                             .font(.title3)
-                            .foregroundColor(.white)
+                            .foregroundStyle(.white)
                             .frame(width: 44, height: 44)
                             .opacity(timerManager.state.phase == .prepare || timerManager.state.phase == .rest ? 1 : 0)
                     }
@@ -136,22 +136,22 @@ struct WatchTimerView: View {
 
                 Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 36))
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
 
                 Text("Done!")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
 
                 Text(formattedTotalTime)
                     .font(.system(size: 28, weight: .semibold, design: .rounded))
                     .monospacedDigit()
-                    .foregroundColor(.white)
+                    .foregroundStyle(.white)
 
                 if let preset = timerManager.currentPreset {
                     Text("\(preset.numberOfRounds) rounds")
                         .font(.caption)
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundStyle(.white.opacity(0.8))
                 }
 
                 Spacer()
@@ -161,7 +161,7 @@ struct WatchTimerView: View {
                 } label: {
                     Text("OK")
                         .font(.headline)
-                        .foregroundColor(.green)
+                        .foregroundStyle(.green)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                         .background(Color.white)

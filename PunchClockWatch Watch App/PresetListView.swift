@@ -16,11 +16,11 @@ struct PresetListView: View {
 
                         HStack(spacing: 6) {
                             Label(formatTime(preset.roundTime), systemImage: "flame.fill")
-                                .foregroundColor(.red)
+                                .foregroundStyle(.red)
                             Label(formatTime(preset.restTime), systemImage: "pause.circle")
-                                .foregroundColor(.green)
+                                .foregroundStyle(.green)
                             Label("\(preset.numberOfRounds)", systemImage: "repeat")
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                         .font(.caption2)
                     }

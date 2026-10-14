@@ -43,14 +43,14 @@ struct HistoryView: View {
         VStack(spacing: 16) {
             Image(systemName: "clock.arrow.circlepath")
                 .font(.system(size: 50))
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
 
             Text("No Workouts Yet")
                 .font(.headline)
 
             Text("Complete a workout to see it here")
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -98,7 +98,7 @@ struct StatBox: View {
 
             Text(title)
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
     }
@@ -116,14 +116,14 @@ struct WorkoutRecordRow: View {
 
                     if record.isComplete {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                             .font(.caption)
                     }
                 }
 
                 Text(record.formattedDate)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
 
             Spacer()
@@ -135,7 +135,7 @@ struct WorkoutRecordRow: View {
 
                 Text("\(record.roundsCompleted)/\(record.totalRounds) rounds")
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(.vertical, 4)
